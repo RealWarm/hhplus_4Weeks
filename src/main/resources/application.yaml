@@ -35,11 +35,13 @@ spring:
   config:
     activate:
       on-profile: dev
+
   datasource:
     url: "jdbc:mysql://localhost:23308/hhplus"
     username: "root"
     password: "root"
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -48,16 +50,33 @@ spring:
         format_sql: true
         show_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+
   data:
     redis:
       host: localhost
       port: 6379
-  open-in-view: false
+
+  kafka:
+    bootstrap-servers:
+      - localhost:9092
+      - localhost:9093
+      - localhost:9094
+    consumer:
+      group-id: concert-ticketing-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
   logging:
     level:
       org.springframework.cache: trace # Redis 사용에 대한 로그가 조회되도록 설정
 
+topic:
+  payment: PAYMENT
 ---
 #spring:
 #  application:

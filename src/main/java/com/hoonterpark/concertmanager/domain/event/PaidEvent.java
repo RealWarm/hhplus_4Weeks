@@ -1,4 +1,4 @@
-package com.hoonterpark.concertmanager.application.event;
+package com.hoonterpark.concertmanager.domain.event;
 
 
 import com.hoonterpark.concertmanager.domain.entity.ReservationEntity;

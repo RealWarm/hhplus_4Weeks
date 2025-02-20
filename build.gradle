@@ -46,7 +46,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-testcontainers'
 	testImplementation 'org.testcontainers:junit-jupiter'
 	testImplementation 'org.testcontainers:mysql'
-	testImplementation 'org.instancio:instancio-junit'
 
 	// Lombok 의존성 (테스트 환경용)
 	testCompileOnly 'org.projectlombok:lombok:1.18.22'
@@ -60,6 +59,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-cache'
 	implementation 'org.redisson:redisson-spring-boot-starter:3.43.0'
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+	// Kafaka
+	implementation 'org.springframework.kafka:spring-kafka'
+	testImplementation 'org.springframework.kafka:spring-kafka-test' // Spring Kafka Test (for @EmbeddedKafka)
 
 }
 
